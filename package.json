@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "fs-extra": "^9.0.0",
+    "jschardet": "^2.1.1",
     "prompts": "^2.3.2"
   },
   "name": "getlines",
