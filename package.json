@@ -7,7 +7,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "bin": "./bin/index.js",
-  "description": "Count how many lines of all your files.",
+  "description": "Count how many lines you wrote.",
   "keywords": [
     "cli",
     "node",
