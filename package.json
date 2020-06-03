@@ -1,13 +1,13 @@
 {
-  "dependencies": {
-    "fs-extra": "^9.0.0",
-    "jschardet": "^2.1.1",
-    "prompts": "^2.3.2"
-  },
   "name": "getlines",
   "version": "1.0.0",
   "main": "index.js",
   "bin": "./bin/index.js",
+  "pkg": {
+    "scripts": [
+      "bin/**"
+    ]
+  },
   "description": "Count how many lines you wrote.",
   "keywords": [
     "cli",
@@ -17,5 +17,13 @@
     "count lines"
   ],
   "author": "Yokiijay <yokiijay@gmail.com> (https://yokiijay.github.io)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "fs-extra": "^9.0.0",
+    "ignore": "^5.1.8",
+    "jschardet": "^2.1.1",
+    "prompts": "^2.3.2",
+    "yargs": "^15.3.1"
+  }
 }

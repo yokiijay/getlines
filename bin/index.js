@@ -1,36 +1,36 @@
 #!/usr/bin/env node
-const fs = require('fs-extra')
-const path = require('path')
-const jschardet = require('jschardet')
+const yargs = require('yargs')
+const getlines = require('../src/getlines')
+const isZh = require('../src/isZh')
 
-let allFilesLines = 0
+const usage = 
+`
+🔍 Count how many lines you wrote.
 
-async function getlines(dir){
-  const files = fs.readdirSync(dir)
+  Usage: linsof <directory path>
 
-  for(file of files){
-    const filepath = path.join(dir, file)
+  Example:
+  $ linesof .       Count all lines of current directory recursively.
+`.zh(
+`
+🔍看看这些年你写了多少行代码
 
-    const stats = await fs.stat(filepath)
+  使用：linesof <目录路径>
 
-    if(stats.isFile()){
-      const data = await fs.readFile(filepath)
-      if(!jschardet.detect(data).encoding) continue
-      const fileLines = data.toString().match(/\n/g)&&data.toString().match(/\n/g).length
-      allFilesLines+=fileLines+1
-      console.log( `文件 ${filepath} 行数为：${fileLines}` )
-    }else if(stats.isDirectory()){
-      await getlines(filepath)
-    }
+  示例:
+  $ linesof .       获取当前目录所有文件的代码行数，包括所有子文件
+`
+)
 
-  }
-}
+yargs
+  .usage(usage)
+  .alias('h', 'help')
+  .alias('v', 'version')
+  .argv
 
 
 {(async ()=>{
 
-  await getlines(process.argv[2])
+  const allLines = await getlines(dir)
 
-  console.log( `所有文件行数共：${allFilesLines}` )
-  
 })()}
