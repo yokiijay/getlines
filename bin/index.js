@@ -22,15 +22,22 @@ const usage =
 `
 )
 
-yargs
+const argv = yargs
   .usage(usage)
   .alias('h', 'help')
   .alias('v', 'version')
+  .option('i', {
+    alias: 'ignore',
+    describe: 'ignore other specified files'.zh('排除其他指定文件'),
+    type: 'array'
+  })
   .argv
+
+console.log( argv )
 
 
 {(async ()=>{
 
-  const allLines = await getlines(dir)
+  // const allLines = await getlines(dir)
 
 })()}
