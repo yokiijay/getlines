@@ -33,11 +33,12 @@ const argv = yargs
   })
   .argv
 
-console.log( argv )
-
+const {ignore} = argv
+// console.log( argv )
 
 {(async ()=>{
-
-  // const allLines = await getlines(dir)
+  const dir = '.' //只查当前目录
+  const allLines = await getlines(dir, ignore)
+  console.log( allLines )
 
 })()}

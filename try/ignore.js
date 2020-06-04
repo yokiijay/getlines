@@ -1,11 +1,8 @@
 const ignore = require('ignore')
 const path = require('path')
+const fs = require('fs')
 
-const not = [
-  '**/*.js'
-]
-
-const ig = ignore().add(not)
+const ig = ignore().add().add(['src'])
 
 
-console.log( ig.filter([path.relative('.','./src/no/hello.md')]) )
+console.log( ig.filter([path.relative('.','./src/index.js')]) )

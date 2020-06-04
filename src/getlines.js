@@ -1,14 +1,24 @@
 const fs = require('fs-extra')
 const path = require('path')
 const jschardet = require('jschardet')
+const ignore = require('ignore')
 
 let allFilesLines = 0
 
-const getlines = async (dir)=>{
-  const files = fs.readdirSync(dir)
+const getlines = async (dir, ignoreList)=>{
+  const gitignoreExist = fs.existsSync('.gitignore')
+  const ig = ignore()
+    .add('.git')
+    .add(ignoreList)
+    .add(gitignoreExist?fs.readFileSync('.gitignore').toString():null)
 
+  const files = fs.readdirSync(dir)
+    
   for(file of files){
     const filepath = path.join(dir, file)
+
+    // 排除文件
+    if(ig.ignores(filepath)) continue
 
     const stats = await fs.stat(filepath)
 
@@ -19,7 +29,7 @@ const getlines = async (dir)=>{
       allFilesLines+=fileLines+1
       console.log( `${fileLines} 行: ${filepath}` )
     }else if(stats.isDirectory()){
-      await getlines(filepath)
+      await getlines(filepath, ignoreList)
     }
 
   }
