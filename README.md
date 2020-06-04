@@ -1,2 +1,2 @@
-# getlines
- Get all your files' lines.
+# linesof
+ Count how many lines of your code.
