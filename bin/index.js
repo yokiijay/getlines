@@ -2,6 +2,7 @@
 const yargs = require('yargs')
 const getlines = require('../src/getlines')
 const isZh = require('../src/isZh')
+const signale = require('signale')
 
 const usage = 
 `
@@ -34,11 +35,10 @@ const argv = yargs
   .argv
 
 const {ignore} = argv
-// console.log( argv )
 
 {(async ()=>{
   const dir = '.' //只查当前目录
   const allLines = await getlines(dir, ignore)
-  console.log( allLines )
+  signale.complete(`Your wrote ${allLines} lines of codes.`.zh(`你写了 ${allLines} lines of codes`))
 
 })()}
