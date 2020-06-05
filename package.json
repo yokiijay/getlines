@@ -1,6 +1,6 @@
 {
   "name": "linesof",
-  "version": "0.1.2",
+  "version": "0.1.6",
   "main": "index.js",
   "bin": "./bin/index.js",
   "files": [
@@ -23,6 +23,7 @@
     "ignore": "^5.1.8",
     "jschardet": "^2.1.1",
     "prompts": "^2.3.2",
+    "signale": "^1.4.0",
     "yargs": "^15.3.1"
   }
 }

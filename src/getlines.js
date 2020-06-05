@@ -2,6 +2,7 @@ const fs = require('fs-extra')
 const path = require('path')
 const jschardet = require('jschardet')
 const ignore = require('ignore')
+const signale = require('signale')
 
 let allFilesLines = 0
 
@@ -27,7 +28,7 @@ const getlines = async (dir, ignoreList)=>{
       if(!jschardet.detect(data).encoding) continue
       const fileLines = data.toString().match(/\n/g)&&data.toString().match(/\n/g).length
       allFilesLines+=fileLines+1
-      console.log( `${fileLines} 行: ${filepath}` )
+      signale.star( `${fileLines} linesof: ${filepath}`.zh(`${fileLines} 行: ${filepath}`) )
     }else if(stats.isDirectory()){
       await getlines(filepath, ignoreList)
     }
