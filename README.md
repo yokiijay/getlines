@@ -1,6 +1,8 @@
 # linesof - A command line tool for counting code lines
  Count how many lines of your code.
 
+ <img width="450" src="https://i.loli.net/2020/06/05/2XTJWLw4QVxzj7f.gif" />
+
 # Usage
 
 Count all file lines recursively from currenty directory. 
