@@ -7,18 +7,18 @@ const usage =
 `
 🔍 Count how many lines you wrote.
 
-  Usage: linsof <directory path>
+  Usage: linsof [-i, --ignore <path>]
 
   Example:
-  $ linesof .       Count all lines of current directory recursively.
+  $ linesof       Count all lines of current directory recursively.
 `.zh(
 `
 🔍看看这些年你写了多少行代码
 
-  使用：linesof <目录路径>
+  使用：linesof [-i, --ignore <path>]
 
   示例:
-  $ linesof .       获取当前目录所有文件的代码行数，包括所有子文件
+  $ linesof       获取当前目录所有文件的代码行数，包括所有子文件
 `
 )
 
